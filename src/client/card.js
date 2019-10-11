@@ -29,19 +29,20 @@ const CardBody = (props) => {
 };
 
 
-const Card = () => {
-  const news = Data.map(data => (
-    <div key={data.key}>
+const Card = (props) => {
+  const {title, text, date, id} = props;
+  const news = (
+    <div key={id}>
       <article className="card">
         <CardHeader image="https://source.unsplash.com/user/erondu/600x400" />
         <CardBody
-          title={data.title}
-          text={data.text}
-          date={data.date}
+          title={title}
+          text={text}
+          date={date}
         />
       </article>
     </div>
-  ));
+  );
   return (
     <>
       {news}

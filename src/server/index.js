@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const Data = require('./models/data');
+const News = require('./models/data');
 
 const app = express();
 
@@ -14,8 +14,8 @@ mongoose.connect('mongodb://localhost:27017/reactFullstack', { useCreateIndex: t
 app.use(express.static('dist'));
 
 app.post('/api/register', (req, res) => {
-  const { name, city, age } = req.body;
-  const newData = new Data({ name, city, age });
+  const { title, date, text } = req.body;
+  const newData = new News({ title, date, text });
   newData.save({}, (err, data) => {
     if (err) {
       console.log(err);
@@ -25,7 +25,7 @@ app.post('/api/register', (req, res) => {
 });
 
 app.get('/api/getUsername', (req, res) => {
-  Data.find({}, (err, result) => {
+  News.find({}, (err, result) => {
     if (err) throw err;
     res.send(result);
   });

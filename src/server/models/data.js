@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-const dataSchema = new mongoose.Schema({
-  name: { type: String },
-  city: { type: String },
-  age: { type: String }
+const newsSchema = new mongoose.Schema({
+  title: { type: String },
+  date: { type: String },
+  text: { type: String }
 });
 
-module.exports = mongoose.model('Data', dataSchema);
+module.exports = mongoose.model('News', newsSchema);

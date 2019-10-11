@@ -18,13 +18,17 @@ const App = () => {
   return (
     <div>
       {data && data.map((info) => {
-        const { name, age, city } = info;
+        const { title, date, text, _id } = info;
+
         return (
           // eslint-disable-next-line no-underscore-dangle
           <div key={info._id}>
-            <h1>{name}</h1>
-            <p>{`My name is ${name}. I am ${age} and live in ${city}`}</p>
-            <Card />
+            <Card
+              id={_id}
+              title={title}
+              date={date}
+              text={text}
+            />
           </div>
         );
       })
